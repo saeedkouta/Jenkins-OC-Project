@@ -26,7 +26,7 @@
     }
 ```
 
-### *using 3 Stages(Build, Push, Deploy):
+#### *using 3 Stages(Build, Push, Deploy):
 ```
      stages {
         stage('Build Docker Image') {
