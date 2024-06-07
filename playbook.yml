@@ -1,0 +1,13 @@
+---
+- name: lab27
+  hosts: server
+  remote_user: saeed
+  gather_facts: false
+  become: true
+  vars_files:
+    - vault.yml  
+  roles:
+     - docker
+     - openshift
+     - jenkins
+
