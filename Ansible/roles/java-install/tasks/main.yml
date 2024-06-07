@@ -1,0 +1,33 @@
+---
+- name: Gather facts
+  setup:
+
+- name: Download Java 17 tar.gz
+  get_url:
+    url: https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
+    dest: /tmp/jdk-17_linux-x64_bin.tar.gz
+
+- name: Create directory for Java installation
+  file:
+    path: /usr/local/java
+    state: directory
+    mode: '0755'
+
+- name: Extract Java 17
+  unarchive:
+    src: /tmp/jdk-17_linux-x64_bin.tar.gz
+    dest: /usr/local/java
+    remote_src: yes
+
+- name: Set JAVA_HOME environment variable
+  lineinfile:
+    path: /etc/profile
+    line: 'export JAVA_HOME=/usr/local/java/jdk-17'
+    create: yes
+
+- name: Set PATH environment variable for Java
+  lineinfile:
+    path: /etc/profile
+    line: 'export PATH=$PATH:$JAVA_HOME/bin'
+    create: yes
+

@@ -1,12 +1,14 @@
 ---
-- name: lab27
-  hosts: server
+- name: jenkins-slave-lab
+  hosts: ec2-slave
   remote_user: ubuntu
   gather_facts: false
   become: true
 
   roles:
-     - docker
-     - openshift
+     - java-install
+     #- docker
+     #- openshift
+
 
 
