@@ -1,0 +1,17 @@
+---
+- name: Download oc CLI tarball
+  get_url:
+    url: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz
+    dest: /tmp/openshift-client-linux.tar.gz
+
+- name: Extract oc CLI
+  unarchive:
+    src: /tmp/openshift-client-linux.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+
+- name: Ensure oc CLI is executable
+  file:
+    path: /usr/local/bin/oc
+    mode: '0755'
+

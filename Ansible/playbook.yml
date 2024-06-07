@@ -1,0 +1,12 @@
+---
+- name: lab27
+  hosts: server
+  remote_user: ubuntu
+  gather_facts: false
+  become: true
+
+  roles:
+     - docker
+     - openshift
+
+
