@@ -5,11 +5,21 @@
 
 <img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/f4ae149d-8594-4b7a-b0ea-6e233efea6e5" width="1000" > 
 
-### Step 2: Create Dockerfile to build the image
+### Step 2: Create Deployment and Service yaml files
+
+#### Deploymentfile
+
+<img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/84b6f566-8608-471b-b801-68e881b1d315" width="1000" > 
+
+#### Servicefile
+
+<img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/5b1ecad2-7fd2-46eb-ad65-1c573042e945" width="1000" > 
+
+### Step 3: Create Dockerfile to build the image
 
 <img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/4c900e90-8df7-4a8f-84f2-158bba6cee74" width="1000" > 
 
-### Step 3: Create Jenkinsfile 
+### Step 4: Create Jenkinsfile 
 
 #### *using Shared Library:
 ```
@@ -70,7 +80,7 @@
 }
 ```
 
-### Step 4: Create Shared Library
+### Step 5: Create Shared Library
 
 #### *buildDockerImage.groovy
 ```
@@ -118,7 +128,7 @@ def call(String OpenShiftCredentialsID, String openshiftClusterurl, String opens
 [This is the repo of the Shared Library](https://github.com/saeedkouta/jenkins-oc-shared-library.git)
 
 
-### Step 5: Create Jenkins-Matser
+### Step 6: Create Jenkins-Matser
 
 #### Iam Using As docker Container As Jenkins-Master and this is it's Configration
 ```
@@ -128,13 +138,13 @@ sudo docker run -p 8080:8080 -p 50000:50000 -d \
  -v $(which docker):/usr/bin/docker jenkins/jenkins 
 ```
 
-### Step 6 : Configure the shared library on the jenkins system
+### Step 7 : Configure the shared library on the jenkins system
 
 <img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/f29eec84-3913-4ceb-b89c-101d3145bf6a" width="1000" > 
 
 <img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/16af7cea-c0e3-4a47-84f3-079de3a9168f" width="1000" > 
 
-### Step 7: Add Credentials  
+### Step 8: Add Credentials  
 
 #### *OC-Token:
 
@@ -148,7 +158,7 @@ sudo docker run -p 8080:8080 -p 50000:50000 -d \
 
 <img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/a7539510-6676-4a49-af22-e948cde9918e" width="1000" > 
 
-### Step 8: Create Jenkins-slave agent
+### Step 9: Create Jenkins-slave agent
 
 #### *Iam using Ec2-instance As Jenkins-Slave:
 
@@ -188,7 +198,7 @@ sudo docker run -p 8080:8080 -p 50000:50000 -d \
 
 <img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/6ecfc8b8-b8f0-4bd7-a211-ac123bda83ac" width="1000" > 
 
-### Step 9: Create The Jenkins-slave Node
+### Step 10: Create The Jenkins-slave Node
 
 ##### *Connect to The Ec2 Using SSH once to add The master as knowing host
 
@@ -214,7 +224,7 @@ sudo docker run -p 8080:8080 -p 50000:50000 -d \
 
 <img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/8b2be18b-5495-41bc-b623-f10b5bb3b176" width="1000" > 
 
-### Step 10: Create The Pipeline 
+### Step 11: Create The Pipeline 
 
 #### 1- Create a Pipeline and add the repo of the project on it:
 
@@ -230,7 +240,7 @@ sudo docker run -p 8080:8080 -p 50000:50000 -d \
 
 <img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/ca47e367-8797-4cf5-9a7a-d6b598f80ec5" width="1000" > 
 
-### Step 11: Ensure That the Deploy is Created And use port-forward to see The Website
+### Step 12: Ensure That the Deploy is Created And use port-forward to see The Website
 
 <img src="https://github.com/saeedkouta/Jenkins-OC-Project/assets/167209058/bd2d8f20-5f94-4939-a440-0f8b2fc03e32" width="1000" > 
 
