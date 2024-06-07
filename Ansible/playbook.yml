@@ -7,8 +7,8 @@
 
   roles:
      - java-install
-     #- docker
-     #- openshift
+     - docker
+     - openshift
 
 
 
