@@ -22,7 +22,7 @@
 ### Step 4: Create Jenkinsfile 
 
 #### *using Shared Library:
-```
+```groovy
 @Library('shared-library')_
 ```
 
@@ -37,7 +37,7 @@
 ```
 
 #### *using 3 Stages(Build, Push, Deploy):
-```
+```groovy
      stages {
         stage('Build Docker Image') {
             steps {
@@ -68,7 +68,7 @@
 ```
 
 #### *using Post to show the result of the process
-```
+```bash
     post {
         success {
             echo "${JOB_NAME}-${BUILD_NUMBER} pipeline succeeded"
