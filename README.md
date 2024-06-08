@@ -27,7 +27,7 @@
 ```
 
 #### *using the jenkins-slave agent
-```
+```json
     agent { 
         // Specifies a label to select an available agent
          node { 
